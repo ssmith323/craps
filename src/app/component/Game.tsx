@@ -3,20 +3,30 @@ import { Dices } from "./Dice";
 import { Mat } from "./Mat";
 import { History } from "./History";
 import { useCheckWinners } from "../context/useCheckWinners";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GameContext, GameState } from "../context/GameContext";
 import { UserView } from "./UserView";
 import { usePayout } from "../context/usePayout";
+import { useHistory } from "../context/useHistory";
 
 export const Game = () => {
   const check = useCheckWinners();
   const payout = usePayout();
+  const { addHistory, getTotalBet, totalDamage } = useHistory();
   const { state, setState, die1, die2 } = useContext(GameContext);
+
+  const [roller, setRoller] = useState(0);
   useEffect(() => {
     if (state === GameState.PAYOUT && die1 < 7 && die2 < 7) {
+      const totalBet = getTotalBet();
       const results = check();
-      payout(results);
+      const { winnings, losings } = payout(results);
       console.log(results);
+      addHistory(roller, totalBet, winnings, losings);
+      if (results.crapOut) {
+        alert(`Total damage: ${totalDamage(roller)}`);
+        setRoller((roller) => ++roller);
+      }
       setState(GameState.INIT);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

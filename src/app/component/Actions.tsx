@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { GameContext, GameState } from "../context/GameContext";
+import { Button } from "./Button";
 
 const getDiceRoll = () => {
   return Math.ceil(Math.random() * 6);
@@ -27,13 +28,9 @@ export const Actions = () => {
   };
   return (
     <div>
-      <button
-        className={"disabled:text-red-500"}
-        onClick={roll}
-        disabled={state === GameState.ROLLING}
-      >
+      <Button onClick={roll} disabled={state === GameState.ROLLING}>
         Roll
-      </button>
+      </Button>
     </div>
   );
 };

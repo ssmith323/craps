@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { FIELD_BETS } from "../context/bets";
 import { UserContext } from "../context/UserContext";
+import { Button } from "./Button";
 
 export const FieldBets = () => {
   const [bet, setBet] = useState<string | null>();
@@ -28,7 +29,7 @@ export const FieldBets = () => {
   };
 
   return (
-    <div className="relative flex flex-col items-center m-2 border border-white">
+    <div className="relative flex flex-col items-center m-2 border border-white space-y-1 p-1">
       <h3 className="text-bold">Field Bets</h3>
       <div>
         {FIELD_BETS.map((num) => (
@@ -42,7 +43,7 @@ export const FieldBets = () => {
         type="number"
         value={bet ?? ""}
       />
-      <button onClick={placeBet}>Place bet</button>
+      <Button onClick={placeBet}>Place bet</Button>
       {field && field > 0 && (
         <button
           className="absolute top-0 right-0 rounded-full w-8 h-8 bg-red-700 border border-gray-800 text-center"

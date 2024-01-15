@@ -26,11 +26,15 @@ export const usePayout = () => {
   const { die1, die2 } = useContext(GameContext);
 
   const payoutUser = (results: IGameResults) => {
+    let winnings = 0;
+    let losings = 0;
     if (results.field === BetResults.PAY && bets.field != null) {
       const payout =
         die1 + die2 === 2 || die1 + die2 === 12 ? 2 * bets.field : bets.field;
+      winnings += payout;
       setMoney((m) => m + payout);
     } else if (results.field === BetResults.COLLECT) {
+      losings += bets.field ?? 0;
       bets.setField(null);
     }
     if (results.pass === BetResults.PAY && bets.pass != null) {
@@ -40,8 +44,11 @@ export const usePayout = () => {
           Math.floor(ODDS_PAYOUT.get(die1 + die2)! * bets.odds) + bets.odds;
         bets.setOdds(null);
       }
+      winnings += payout;
       setMoney((m) => m + payout);
     } else if (results.pass === BetResults.COLLECT) {
+      losings += bets.pass ?? 0;
+      losings += bets.odds ?? 0;
       bets.setPass(null);
       bets.setOdds(null);
     }
@@ -49,8 +56,15 @@ export const usePayout = () => {
       const payout = Math.floor(
         PLACE_PAYOUT.get(die1 + die2)! * (bets as any)[`place${die1 + die2}`]
       );
+      winnings += payout;
       setMoney((m) => m + payout);
     } else if (results.place === BetResults.COLLECT) {
+      losings += bets.place4 ?? 0;
+      losings += bets.place5 ?? 0;
+      losings += bets.place6 ?? 0;
+      losings += bets.place8 ?? 0;
+      losings += bets.place9 ?? 0;
+      losings += bets.place10 ?? 0;
       bets.setPlace4(null);
       bets.setPlace5(null);
       bets.setPlace6(null);
@@ -58,6 +72,8 @@ export const usePayout = () => {
       bets.setPlace9(null);
       bets.setPlace10(null);
     }
+
+    return { winnings, losings };
   };
 
   return payoutUser;
