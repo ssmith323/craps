@@ -8,6 +8,18 @@ interface IUserBets {
   setField: Dispatch<SetStateAction<number | null>>;
   odds: number | null;
   setOdds: Dispatch<SetStateAction<number | null>>;
+  place4: number | null;
+  setPlace4: Dispatch<SetStateAction<number | null>>;
+  place5: number | null;
+  setPlace5: Dispatch<SetStateAction<number | null>>;
+  place6: number | null;
+  setPlace6: Dispatch<SetStateAction<number | null>>;
+  place8: number | null;
+  setPlace8: Dispatch<SetStateAction<number | null>>;
+  place9: number | null;
+  setPlace9: Dispatch<SetStateAction<number | null>>;
+  place10: number | null;
+  setPlace10: Dispatch<SetStateAction<number | null>>;
 }
 
 interface IUser {

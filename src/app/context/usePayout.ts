@@ -12,6 +12,15 @@ const ODDS_PAYOUT = new Map([
   [8, 1.2],
 ]);
 
+const PLACE_PAYOUT = new Map([
+  [4, 1.8],
+  [5, 1.4],
+  [6, 1.16666666667],
+  [10, 1.8],
+  [9, 1.4],
+  [8, 1.16666666667],
+]);
+
 export const usePayout = () => {
   const { bets, setMoney } = useContext(UserContext);
   const { die1, die2 } = useContext(GameContext);
@@ -35,6 +44,19 @@ export const usePayout = () => {
     } else if (results.pass === BetResults.COLLECT) {
       bets.setPass(null);
       bets.setOdds(null);
+    }
+    if (results.place === BetResults.PAY) {
+      const payout = Math.floor(
+        PLACE_PAYOUT.get(die1 + die2)! * (bets as any)[`place${die1 + die2}`]
+      );
+      setMoney((m) => m + payout);
+    } else if (results.place === BetResults.COLLECT) {
+      bets.setPlace4(null);
+      bets.setPlace5(null);
+      bets.setPlace6(null);
+      bets.setPlace8(null);
+      bets.setPlace9(null);
+      bets.setPlace10(null);
     }
   };
 

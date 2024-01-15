@@ -12,7 +12,7 @@ export const FieldBets = () => {
 
   const placeBet = () => {
     const num = parseInt(bet ?? "0");
-    if (money > num) {
+    if (money >= num) {
       setField((field) => (field ?? 0) + num);
       setMoney((money) => money - num);
       setBet("");

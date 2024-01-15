@@ -49,7 +49,7 @@ export const PassLine = () => {
           <button onClick={placeBet}>Place bet</button>
         </>
       )}
-      {point && (
+      {point && pass && (
         <>
           <input
             className="text-black"
