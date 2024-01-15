@@ -26,6 +26,14 @@ export const ThreeDie = () => {
         fill="transparent"
         strokeWidth="2"
       />
+      <circle
+        cx="50"
+        cy="50"
+        r="10"
+        stroke="black"
+        fill="transparent"
+        strokeWidth="2"
+      />
     </svg>
   );
 };
