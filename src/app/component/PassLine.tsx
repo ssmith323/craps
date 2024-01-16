@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import { GameContext } from "../context/GameContext";
+import { Chip } from "./Chip";
 
 export const PassLine = () => {
   const [bet, setBet] = useState<string | null>();
@@ -60,16 +61,10 @@ export const PassLine = () => {
           <button onClick={addOdds}>Add odds</button>
         </>
       )}
-      {pass && pass > 0 && (
-        <div className="absolute top-0 right-0 rounded-full w-8 h-8 bg-red-700 border border-gray-800 text-center">
-          {pass}
-        </div>
-      )}
-      {odds && odds > 0 && (
-        <div className="absolute top-8 right-0 rounded-full w-8 h-8 bg-red-700 border border-gray-800 text-center">
-          {odds}
-        </div>
-      )}
+      <Chip bet={pass} />
+      <div className="relative h-1">
+        <Chip bet={odds} />
+      </div>
     </div>
   );
 };

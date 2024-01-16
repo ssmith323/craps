@@ -21,6 +21,13 @@ const PLACE_PAYOUT = new Map([
   [8, 1.16666666667],
 ]);
 
+const HARDWAYS_PAYOUT = new Map([
+  [4, 7],
+  [6, 9],
+  [8, 9],
+  [10, 7],
+]);
+
 export const usePayout = () => {
   const { bets, setMoney } = useContext(UserContext);
   const { die1, die2 } = useContext(GameContext);
@@ -71,6 +78,41 @@ export const usePayout = () => {
       bets.setPlace8(null);
       bets.setPlace9(null);
       bets.setPlace10(null);
+    }
+    if (results.hardways.four === BetResults.PAY) {
+      const payout = Math.floor((bets.hard4 ?? 0) * HARDWAYS_PAYOUT.get(4)!);
+      winnings += payout;
+      setMoney((m) => m + payout);
+    } else if (results.hardways.four === BetResults.COLLECT) {
+      losings += bets.hard4 ?? 0;
+      bets.setHard4(null);
+    }
+
+    if (results.hardways.six === BetResults.PAY) {
+      const payout = Math.floor((bets.hard6 ?? 0) * HARDWAYS_PAYOUT.get(6)!);
+      winnings += payout;
+      setMoney((m) => m + payout);
+    } else if (results.hardways.six === BetResults.COLLECT) {
+      losings += bets.hard6 ?? 0;
+      bets.setHard6(null);
+    }
+
+    if (results.hardways.eight === BetResults.PAY) {
+      const payout = Math.floor((bets.hard8 ?? 0) * HARDWAYS_PAYOUT.get(8)!);
+      winnings += payout;
+      setMoney((m) => m + payout);
+    } else if (results.hardways.eight === BetResults.COLLECT) {
+      losings += bets.hard8 ?? 0;
+      bets.setHard8(null);
+    }
+
+    if (results.hardways.ten === BetResults.PAY) {
+      const payout = Math.floor((bets.hard10 ?? 0) * HARDWAYS_PAYOUT.get(10)!);
+      winnings += payout;
+      setMoney((m) => m + payout);
+    } else if (results.hardways.ten === BetResults.COLLECT) {
+      losings += bets.hard10 ?? 0;
+      bets.setHard10(null);
     }
 
     return { winnings, losings };

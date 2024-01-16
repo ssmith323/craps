@@ -24,7 +24,7 @@ export const Game = () => {
       console.log(results);
       addHistory(roller, totalBet, winnings, losings);
       if (results.crapOut) {
-        alert(`Total damage: ${totalDamage(roller)}`);
+        alert(`Total damage: ${totalDamage(roller) - losings + winnings}`);
         setRoller((roller) => ++roller);
       }
       setState(GameState.INIT);

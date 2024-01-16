@@ -20,6 +20,14 @@ interface IUserBets {
   setPlace9: Dispatch<SetStateAction<number | null>>;
   place10: number | null;
   setPlace10: Dispatch<SetStateAction<number | null>>;
+  hard4: number | null;
+  setHard4: Dispatch<SetStateAction<number | null>>;
+  hard6: number | null;
+  setHard6: Dispatch<SetStateAction<number | null>>;
+  hard8: number | null;
+  setHard8: Dispatch<SetStateAction<number | null>>;
+  hard10: number | null;
+  setHard10: Dispatch<SetStateAction<number | null>>;
 }
 
 interface IUser {
