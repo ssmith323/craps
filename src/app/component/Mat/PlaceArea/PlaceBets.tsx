@@ -1,5 +1,7 @@
 import { FC, useContext, useState } from "react";
-import { UserContext } from "../context/UserContext";
+import { UserContext } from "../../../context/UserContext";
+import { Button } from "../../Button";
+import { Chip } from "../../Chip";
 interface NumberProps {
   number: number; //"4" | "5" | "6" | "8" | "9" | "10";
   isPoint: boolean;
@@ -27,7 +29,7 @@ export const PlaceBet: FC<NumberProps> = ({ number, isPoint }) => {
     setBet("");
   };
   return (
-    <div className="relative flex flex-col border border-white text-white justify-between items-center p-3">
+    <div className="relative flex flex-col border border-white text-white justify-between items-center p-3 space-y-1">
       <div>{number}</div>
       {isPoint && (
         <div className="absolute top-0 left-0 bg-white border rounded-full text-gray-800">
@@ -40,16 +42,8 @@ export const PlaceBet: FC<NumberProps> = ({ number, isPoint }) => {
         type="number"
         value={bet ?? ""}
       />
-      <button onClick={placeBet}>Bet</button>
-      {(bets as any)[`place${number}`] &&
-        (bets as any)[`place${number}`] > 0 && (
-          <button
-            className="absolute top-0 right-0 rounded-full w-8 h-8 bg-red-700 border border-gray-800 text-center"
-            onClick={removeBet}
-          >
-            {(bets as any)[`place${number}`]}
-          </button>
-        )}
+      <Button onClick={placeBet}>Bet</Button>
+      <Chip bet={(bets as any)[`place${number}`]} removeBet={removeBet} />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
-import { FIELD_BETS } from "../context/bets";
-import { UserContext } from "../context/UserContext";
-import { Button } from "./Button";
+import { FIELD_BETS } from "../../context/bets";
+import { UserContext } from "../../context/UserContext";
+import { Button } from "../Button";
 
 export const FieldBets = () => {
   const [bet, setBet] = useState<string | null>();

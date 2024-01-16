@@ -1,7 +1,7 @@
 import { UserContext } from "@/app/context/UserContext";
 import { FC, useContext, useState } from "react";
-import { Chip } from "../Chip";
-import { Button } from "../Button";
+import { Chip } from "../../Chip";
+import { Button } from "../../Button";
 
 interface HardwayProps {
   hardway: number;
@@ -29,7 +29,7 @@ export const Hardway: FC<HardwayProps> = ({ hardway }) => {
   };
 
   return (
-    <div className="relative flex flex-col m-2 p-1 border border-white space-y-1">
+    <div className="relative flex flex-col m-2 p-1 border border-white space-y-1 grow items-center">
       <div>{hardway}</div>
       <input
         className="text-black w-10"

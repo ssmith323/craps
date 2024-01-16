@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
-import { UserContext } from "../context/UserContext";
-import { GameContext } from "../context/GameContext";
-import { Chip } from "./Chip";
+import { UserContext } from "../../context/UserContext";
+import { GameContext } from "../../context/GameContext";
+import { Chip } from "../Chip";
+import { Button } from "../Button";
 
 export const PassLine = () => {
   const [bet, setBet] = useState<string | null>();
@@ -36,7 +37,7 @@ export const PassLine = () => {
   };
 
   return (
-    <div className="relative flex flex-col items-center m-2 border border-white">
+    <div className="relative flex flex-col items-center m-2 border border-white space-y-1">
       <h3 className="text-bold">Pass Line</h3>
 
       {!point && (
@@ -47,7 +48,7 @@ export const PassLine = () => {
             type="number"
             value={bet ?? ""}
           />
-          <button onClick={placeBet}>Place bet</button>
+          <Button onClick={placeBet}>Place bet</Button>
         </>
       )}
       {point && pass && (
@@ -58,7 +59,7 @@ export const PassLine = () => {
             type="number"
             value={oddsBet ?? ""}
           />
-          <button onClick={addOdds}>Add odds</button>
+          <Button onClick={addOdds}>Add odds</Button>
         </>
       )}
       <Chip bet={pass} />

@@ -1,6 +1,6 @@
 import { FieldBets } from "./FieldBets";
 import { PassLine } from "./PassLine";
-import { Place } from "./Place";
+import { Place } from "./PlaceArea";
 import { Hardways } from "./Hardways";
 
 export const Mat = () => {
