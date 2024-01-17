@@ -11,20 +11,21 @@ export const useHistory = () => {
       .reduce((prev, curr) => prev + curr, 0);
   };
 
-  const totalDamage = (roller: number): number => {
+  const totalDamage = (shooter: number): number => {
     return rolls
-      .filter((roll) => roll.roller === roller)
+      .filter((roll) => roll.shooter === shooter)
       .map((roll) => roll.winnings - roll.losing)
       .reduce((prev, curr) => prev + curr, 0);
   };
 
   const addHistory = (
-    roller: number,
+    shooter: number,
+    roll: number,
     bet: number,
     winnings: number,
     losing: number
   ) => {
-    addRoll({ roller, bet, winnings, losing });
+    addRoll({ shooter, roll, bet, winnings, losing });
   };
 
   return { addHistory, getTotalBet, totalDamage };

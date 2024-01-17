@@ -1,12 +1,12 @@
-import { useContext } from "react";
-import { GameContext, GameState } from "../context/GameContext";
-import { Button } from "./Button";
+import { GameContext, GameState } from "@/app/context/GameContext";
+import { FC, useContext } from "react";
+import { Button } from "../Button";
 
 const getDiceRoll = () => {
   return Math.ceil(Math.random() * 6);
 };
 
-export const Actions = () => {
+export const RollButton: FC = () => {
   const { die1, die2, setDie1, setDie2, state, setState } =
     useContext(GameContext);
 
@@ -27,10 +27,8 @@ export const Actions = () => {
     }, time2);
   };
   return (
-    <div>
-      <Button onClick={roll} disabled={state === GameState.ROLLING}>
-        Roll
-      </Button>
-    </div>
+    <Button onClick={roll} disabled={state === GameState.ROLLING}>
+      Roll
+    </Button>
   );
 };

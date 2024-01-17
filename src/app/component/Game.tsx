@@ -15,17 +15,17 @@ export const Game = () => {
   const { addHistory, getTotalBet, totalDamage } = useHistory();
   const { state, setState, die1, die2 } = useContext(GameContext);
 
-  const [roller, setRoller] = useState(0);
+  const [shooter, setShooter] = useState(0);
   useEffect(() => {
     if (state === GameState.PAYOUT && die1 < 7 && die2 < 7) {
       const totalBet = getTotalBet();
       const results = check();
       const { winnings, losings } = payout(results);
       console.log(results);
-      addHistory(roller, totalBet, winnings, losings);
+      addHistory(shooter, die1 + die2, totalBet, winnings, losings);
       if (results.crapOut) {
-        alert(`Total damage: ${totalDamage(roller) - losings + winnings}`);
-        setRoller((roller) => ++roller);
+        alert(`Total damage: ${totalDamage(shooter) - losings + winnings}`);
+        setShooter((shooter) => ++shooter);
       }
       setState(GameState.INIT);
     }

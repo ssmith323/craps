@@ -2,7 +2,8 @@
 import { Dispatch, SetStateAction, createContext } from "react";
 
 export interface IRoll {
-  roller: number;
+  shooter: number;
+  roll: number;
   bet: number;
   winnings: number;
   losing: number;

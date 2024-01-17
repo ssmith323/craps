@@ -1,26 +1,29 @@
 import { useContext } from "react";
 import { HistoryContext } from "../context/HistoryContext";
 
+const cellStyle = "px-2";
 export const History = () => {
   const { rolls } = useContext(HistoryContext);
   return (
     <div>
-      <table className="">
+      <table className="p-3 m-2 h-44 overflow-y-scroll">
         <thead>
           <tr>
-            <th>Roller</th>
-            <th>Bet</th>
-            <th>Winnings</th>
-            <th>Losings</th>
+            <th className={cellStyle}>Shooter</th>
+            <th className={cellStyle}>Roll</th>
+            <th className={cellStyle}>Bet</th>
+            <th className={cellStyle}>Winnings</th>
+            <th className={cellStyle}>Losings</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="">
           {rolls.map((roll, i) => (
-            <tr key={i}>
-              <td>{roll.roller}</td>
-              <td>{roll.bet}</td>
-              <td>{roll.winnings}</td>
-              <td>{roll.losing}</td>
+            <tr key={i} className="pb-1">
+              <td className={cellStyle}>{roll.shooter}</td>
+              <td className={cellStyle}>{roll.roll}</td>
+              <td className={cellStyle}>{roll.bet}</td>
+              <td className={cellStyle}>{roll.winnings}</td>
+              <td className={cellStyle}>{roll.losing}</td>
             </tr>
           ))}
         </tbody>
