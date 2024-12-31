@@ -4,8 +4,8 @@ export const FourDie = () => {
       <rect
         x="1"
         y="1"
-        width="98"
-        height="98"
+        width="100"
+        height="100"
         stroke="black"
         fill="transparent"
         strokeWidth="2"
@@ -15,7 +15,7 @@ export const FourDie = () => {
         cy="20"
         r="10"
         stroke="black"
-        fill="transparent"
+        fill="black"
         strokeWidth="2"
       />
       <circle
@@ -23,7 +23,7 @@ export const FourDie = () => {
         cy="80"
         r="10"
         stroke="black"
-        fill="transparent"
+        fill="black"
         strokeWidth="2"
       />
       <circle
@@ -31,7 +31,7 @@ export const FourDie = () => {
         cy="20"
         r="10"
         stroke="black"
-        fill="transparent"
+        fill="black"
         strokeWidth="2"
       />
       <circle
@@ -39,7 +39,7 @@ export const FourDie = () => {
         cy="80"
         r="10"
         stroke="black"
-        fill="transparent"
+        fill="black"
         strokeWidth="2"
       />
     </svg>

@@ -1,5 +1,4 @@
 import { Actions } from "./Actions";
-import { Dices } from "./Dice";
 import { Mat } from "./Mat";
 import { History } from "./History";
 import { useCheckWinners } from "../context/useCheckWinners";
@@ -32,14 +31,15 @@ export const Game = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state, check, setState]);
   return (
-    <main className="grid grid-cols-2 min-h-screen">
-      <History />
-
-      <div className="flex flex-col justify-between h-screen">
+    <main className="grid grid-cols-3">
+      <div className="col-span-3 p-4">
         <Mat />
-        <Actions />
-        <Dices />
       </div>
+      {/* <div className="flex flex-row justify-between w-full"> */}
+      <History />
+      <Actions />
+
+      {/* </div> */}
       <UserView />
     </main>
   );

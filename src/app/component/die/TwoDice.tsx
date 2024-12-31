@@ -4,8 +4,8 @@ export const TwoDie = () => {
       <rect
         x="1"
         y="1"
-        width="98"
-        height="98"
+        width="100"
+        height="100"
         stroke="black"
         fill="transparent"
         strokeWidth="2"
@@ -15,7 +15,7 @@ export const TwoDie = () => {
         cy="25"
         r="10"
         stroke="black"
-        fill="transparent"
+        fill="black"
         strokeWidth="2"
       />
       <circle
@@ -23,7 +23,7 @@ export const TwoDie = () => {
         cy="75"
         r="10"
         stroke="black"
-        fill="transparent"
+        fill="black"
         strokeWidth="2"
       />
     </svg>

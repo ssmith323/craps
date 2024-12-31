@@ -6,7 +6,7 @@ export const History = () => {
   const { rolls } = useContext(HistoryContext);
   return (
     <div>
-      <table className="p-3 m-2 h-44 overflow-y-scroll">
+      <table className="p-3 m-2 overflow-y-scroll">
         <thead>
           <tr>
             <th className={cellStyle}>Shooter</th>

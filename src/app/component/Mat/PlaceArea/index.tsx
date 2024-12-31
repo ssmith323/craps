@@ -6,7 +6,7 @@ import { PlaceBet } from "./PlaceBets";
 export const Place = () => {
   const { point } = useContext(GameContext);
   return (
-    <div className="flex items-center justify-center">
+    <div className="h-full grid grid-cols-6 gap-0">
       {PLACE_BETS.map((num) => (
         <PlaceBet key={num} number={num} isPoint={point === num} />
       ))}

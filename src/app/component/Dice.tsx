@@ -26,9 +26,7 @@ const Dice: FC<DiceProps> = ({ num }) => {
     case 6:
       return <SixDie />;
     default:
-      return (
-        <div className="w-[100px] h-[100px] bg-gray-50 animate-pulse"></div>
-      );
+      return <div className="w-[98px] h-[98px] bg-gray-50 animate-pulse"></div>;
   }
 };
 
@@ -36,7 +34,7 @@ export const Dices = () => {
   const { die1, die2 } = useContext(GameContext);
 
   return (
-    <div className="flex justify-around">
+    <div className="absolute right-2 bottom-2 flex justify-around">
       <Dice num={die1} /> <Dice num={die2} />
     </div>
   );
