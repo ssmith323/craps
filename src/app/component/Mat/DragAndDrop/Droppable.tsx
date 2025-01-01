@@ -10,7 +10,7 @@ export const Droppable = ({ id, children }: { id: string; children: any }) => {
   };
 
   return (
-    <div ref={setNodeRef} style={style}>
+    <div ref={setNodeRef} className="w-full" style={style}>
       {children}
     </div>
   );

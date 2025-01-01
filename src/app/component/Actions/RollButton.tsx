@@ -1,6 +1,6 @@
 import { GameContext, GameState } from "@/app/context/GameContext";
 import { FC, useContext } from "react";
-import { Button } from "../Button";
+import { Button } from "../reusable/Button";
 
 const getDiceRoll = () => {
   return Math.ceil(Math.random() * 6);

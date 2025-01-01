@@ -15,17 +15,21 @@ export const PlaceBet: FC<NumberProps> = ({ number, isPoint }) => {
   };
 
   return (
-    <Droppable id={`setPlace${number}`}>
-      <div className="relative flex flex-col border border-white text-white justify-between items-center h-full">
-        <div className="text-lg py-4">{number}</div>
-
+    <div className="flex flex-col  text-white items-center h-full">
+      <div className="border border-white h-4 w-full"></div>
+      <div className="relative border border-white text-lg py-4 w-full text-center">
+        {number}
         {isPoint && (
           <div className="absolute top-0 left-0 bg-white border rounded-full text-gray-800">
             On
           </div>
         )}
-        <Chip bet={(bets as any)[`place${number}`]} removeBet={removeBet} />
       </div>
-    </Droppable>
+      <Droppable id={`setPlace${number}`}>
+        <div className="relative border border-white h-4 w-full">
+          <Chip bet={(bets as any)[`place${number}`]} removeBet={removeBet} />
+        </div>
+      </Droppable>
+    </div>
   );
 };

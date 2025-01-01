@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import { GameContext } from "../../context/GameContext";
 import { Chip } from "../Chip";
-import { Button } from "../Button";
+import { Button } from "../reusable/Button";
 import { Droppable } from "./DragAndDrop/Droppable";
 
 export const PassLine = () => {

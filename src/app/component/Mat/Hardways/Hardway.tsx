@@ -1,7 +1,7 @@
 import { UserContext } from "@/app/context/UserContext";
 import { FC, useContext, useState } from "react";
 import { Chip } from "../../Chip";
-import { Button } from "../../Button";
+import { Button } from "../../reusable/Button";
 import { Droppable } from "../DragAndDrop/Droppable";
 
 interface HardwayProps {

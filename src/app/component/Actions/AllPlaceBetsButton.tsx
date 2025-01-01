@@ -1,5 +1,5 @@
 import { FC, useContext, useState } from "react";
-import { Button } from "../Button";
+import { Button } from "../reusable/Button";
 import { UserContext } from "@/app/context/UserContext";
 import { GameContext } from "@/app/context/GameContext";
 
