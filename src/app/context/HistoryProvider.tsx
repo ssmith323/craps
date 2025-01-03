@@ -2,7 +2,7 @@ import { FC, ReactElement, useState } from "react";
 import { HistoryContext, IRoll } from "./HistoryContext";
 
 interface HistoryProviderProps {
-  children: ReactElement;
+  children: ReactElement<any>;
 }
 
 export const HistoryProvider: FC<HistoryProviderProps> = ({ children }) => {

@@ -1,13 +1,13 @@
-import { useContext } from "react";
-import { UserContext } from "./UserContext";
-import { HistoryContext } from "./HistoryContext";
+import { useContext } from 'react';
+import { UserContext } from './UserContext';
+import { HistoryContext } from './HistoryContext';
 
 export const useHistory = () => {
   const { bets } = useContext(UserContext);
   const { rolls, addRoll } = useContext(HistoryContext);
   const getTotalBet = (): number => {
     return Object.values(bets)
-      .filter((val) => typeof val === "number")
+      .filter((val) => typeof val === 'number')
       .reduce((prev, curr) => prev + curr, 0);
   };
 
@@ -23,7 +23,7 @@ export const useHistory = () => {
     roll: number,
     bet: number,
     winnings: number,
-    losing: number
+    losing: number,
   ) => {
     addRoll({ shooter, roll, bet, winnings, losing });
   };

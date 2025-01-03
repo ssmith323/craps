@@ -1,9 +1,9 @@
-import { useContext, useState } from "react";
-import { UserContext } from "../../context/UserContext";
-import { GameContext } from "../../context/GameContext";
-import { Chip } from "../Chip";
-import { Button } from "../reusable/Button";
-import { Droppable } from "./DragAndDrop/Droppable";
+import { useContext, useState } from 'react';
+import { UserContext } from '../../context/UserContext';
+import { GameContext } from '../../context/GameContext';
+import { Chip } from '../Chip';
+import { Button } from '../reusable/Button';
+import { Droppable } from './DragAndDrop/Droppable';
 
 export const PassLine = () => {
   const [bet, setBet] = useState<string | null>();
@@ -38,32 +38,10 @@ export const PassLine = () => {
   // };
 
   return (
-    <Droppable id={!point ? "setPass" : "setOdds"}>
+    <Droppable id={!point ? 'setPass' : 'setOdds'}>
       <div className="relative flex flex-col items-center border border-white h-12">
         <h3 className="text-bold">Pass Line</h3>
 
-        {/* {!point && (
-          <>
-            <input
-              className="text-black"
-              onChange={(event) => setBet(event.currentTarget.value)}
-              type="number"
-              value={bet ?? ""}
-            />
-            <Button onClick={placeBet}>Place bet</Button>
-          </>
-        )}
-        {point && pass && (
-          <>
-            <input
-              className="text-black"
-              onChange={(event) => setOddsBets(event.currentTarget.value)}
-              type="number"
-              value={oddsBet ?? ""}
-            />
-            <Button onClick={addOdds}>Add odds</Button>
-          </>
-        )} */}
         <Chip bet={pass} />
         <div className="relative h-1">
           <Chip bet={odds} />

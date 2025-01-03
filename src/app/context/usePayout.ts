@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import { UserContext } from "./UserContext";
-import { GameContext } from "./GameContext";
-import { BetResults, IGameResults } from "./useCheckWinners";
+import { useContext } from 'react';
+import { UserContext } from './UserContext';
+import { GameContext } from './GameContext';
+import { BetResults, IGameResults } from './useCheckWinners';
 
 const ODDS_PAYOUT = new Map([
   [4, 2],
@@ -61,7 +61,7 @@ export const usePayout = () => {
     }
     if (results.place === BetResults.PAY) {
       const payout = Math.floor(
-        PLACE_PAYOUT.get(die1 + die2)! * (bets as any)[`place${die1 + die2}`]
+        PLACE_PAYOUT.get(die1 + die2)! * (bets as any)[`place${die1 + die2}`],
       );
       winnings += payout;
       setMoney((m) => m + payout);

@@ -1,4 +1,4 @@
-import { Hardway } from "./Hardway";
+import { Hardway } from './Hardway';
 
 export const Hardways = () => {
   return (

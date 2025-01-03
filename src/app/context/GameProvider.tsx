@@ -1,7 +1,7 @@
-import { FC, useState } from "react";
-import { GameContext, GameState } from "./GameContext";
-import { Game } from "../component/Game";
-import { HistoryProvider } from "./HistoryProvider";
+import { FC, useState } from 'react';
+import { GameContext, GameState } from './GameContext';
+import { Game } from '../component/Game';
+import { HistoryProvider } from './HistoryProvider';
 
 export const GameProvider: FC = () => {
   const [die1, setDie1] = useState(3);

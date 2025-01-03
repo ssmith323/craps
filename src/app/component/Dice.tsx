@@ -1,11 +1,11 @@
-import { FC, useContext } from "react";
-import { GameContext } from "../context/GameContext";
-import { OneDie } from "./die/OneDice";
-import { TwoDie } from "./die/TwoDice";
-import { ThreeDie } from "./die/ThreeDice";
-import { FourDie } from "./die/FourDice";
-import { FiveDie } from "./die/FiveDice";
-import { SixDie } from "./die/SixDice";
+import { FC, useContext } from 'react';
+import { GameContext } from '../context/GameContext';
+import { OneDie } from './die/OneDice';
+import { TwoDie } from './die/TwoDice';
+import { ThreeDie } from './die/ThreeDice';
+import { FourDie } from './die/FourDice';
+import { FiveDie } from './die/FiveDice';
+import { SixDie } from './die/SixDice';
 
 interface DiceProps {
   num: number;

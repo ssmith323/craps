@@ -2,7 +2,7 @@ import { FC, ReactElement, useState } from "react";
 import { UserContext } from "./UserContext";
 
 interface UserProviderProps {
-  children: ReactElement;
+  children: ReactElement<any>;
 }
 
 export const UserProvider: FC<UserProviderProps> = ({ children }) => {

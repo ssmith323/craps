@@ -1,5 +1,5 @@
-"use client";
-import { Dispatch, SetStateAction, createContext } from "react";
+'use client';
+import { Dispatch, SetStateAction, createContext } from 'react';
 
 export enum GameState {
   INIT,

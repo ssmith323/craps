@@ -1,7 +1,7 @@
-import { FC, useContext } from "react";
-import { UserContext } from "../../../context/UserContext";
-import { Chip } from "../../Chip";
-import { Droppable } from "../DragAndDrop/Droppable";
+import { FC, useContext } from 'react';
+import { UserContext } from '../../../context/UserContext';
+import { Chip } from '../../Chip';
+import { Droppable } from '../DragAndDrop/Droppable';
 interface NumberProps {
   number: 4 | 5 | 6 | 8 | 9 | 10;
   isPoint: boolean;

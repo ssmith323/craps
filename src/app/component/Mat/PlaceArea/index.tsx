@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import { GameContext } from "../../../context/GameContext";
-import { PLACE_BETS } from "../../../context/bets";
-import { PlaceBet } from "./PlaceBets";
+import { useContext } from 'react';
+import { GameContext } from '../../../context/GameContext';
+import { PLACE_BETS } from '../../../context/bets';
+import { PlaceBet } from './PlaceBets';
 
 export const Place = () => {
   const { point } = useContext(GameContext);

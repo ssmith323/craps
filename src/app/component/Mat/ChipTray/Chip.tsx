@@ -1,4 +1,4 @@
-import { Draggable } from "../DragAndDrop/Draggable";
+import { Draggable } from '../DragAndDrop/Draggable';
 
 interface ChipProps {
   chip: IChip;
@@ -17,7 +17,7 @@ export const Chip = ({ chip }: ChipProps) => {
         className="rounded-full w-8 h-8 border border-gray-800 text-center"
         style={{
           backgroundColor: chip.color,
-          color: chip.textColor ?? "white",
+          color: chip.textColor ?? 'white',
         }}
       >
         {chip.value}

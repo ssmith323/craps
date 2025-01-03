@@ -1,9 +1,9 @@
-import clsx from "clsx";
-import { useContext } from "react";
-import { FIELD_BETS } from "../../context/bets";
-import { UserContext } from "../../context/UserContext";
-import { Droppable } from "./DragAndDrop/Droppable";
-import { Chip } from "../Chip";
+import clsx from 'clsx';
+import { useContext } from 'react';
+import { FIELD_BETS } from '../../context/bets';
+import { UserContext } from '../../context/UserContext';
+import { Droppable } from './DragAndDrop/Droppable';
+import { Chip } from '../Chip';
 
 export const FieldBets = () => {
   const {
@@ -24,10 +24,10 @@ export const FieldBets = () => {
           {FIELD_BETS.map((num) => (
             <div
               className={clsx(
-                "w-8 h-8 align-middle text-center",
+                'w-8 h-8 align-middle text-center',
                 num === 2 || num === 12
-                  ? "mt-4 border border-white rounded-full"
-                  : ""
+                  ? 'mt-4 border border-white rounded-full'
+                  : '',
               )}
               key={num}
             >

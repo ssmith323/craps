@@ -1,11 +1,11 @@
-import { useContext } from "react";
-import { GameContext } from "./GameContext";
-import { HARDWAYS_BETS, PLACE_BETS, FIELD_BETS } from "./bets";
+import { useContext } from 'react';
+import { GameContext } from './GameContext';
+import { HARDWAYS_BETS, PLACE_BETS, FIELD_BETS } from './bets';
 
 export enum BetResults {
-  PAY = "PAY",
-  STAY = "STAY",
-  COLLECT = "COLLECT",
+  PAY = 'PAY',
+  STAY = 'STAY',
+  COLLECT = 'COLLECT',
 }
 
 interface IHardwayResults {

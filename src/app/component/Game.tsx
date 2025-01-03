@@ -35,11 +35,8 @@ export const Game = () => {
       <div className="col-span-3 p-4">
         <Mat />
       </div>
-      {/* <div className="flex flex-row justify-between w-full"> */}
       <History />
       <Actions />
-
-      {/* </div> */}
       <UserView />
     </main>
   );
