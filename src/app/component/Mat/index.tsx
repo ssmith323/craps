@@ -7,9 +7,11 @@ import { ChipTray } from './ChipTray';
 import { DndContext } from '@dnd-kit/core';
 import { useContext } from 'react';
 import { UserContext } from '@/app/context/UserContext';
+import { useToast } from '@/app/context/ToastContext';
 
 export const Mat = () => {
   const { money, setMoney, bets } = useContext(UserContext);
+  const toast = useToast();
 
   const handleDrag = (evt: any) => {
     const num = parseInt(evt.active.id ?? '0');
@@ -19,11 +21,12 @@ export const Mat = () => {
           (field: number) => (field ?? 0) + num,
         );
         setMoney((money) => money - num);
+        toast.success('Nice bet!');
       } catch (error) {
-        console.error('Not a valid bet');
+        toast.error('Not valid bet');
       }
     } else {
-      console.error('Not enough money to place the bet');
+      toast.error('Not enough money to place the bet');
     }
   };
 

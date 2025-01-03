@@ -2,8 +2,10 @@ import { FC, useContext } from 'react';
 import { UserContext } from '../../../context/UserContext';
 import { Chip } from '../../Chip';
 import { Droppable } from '../DragAndDrop/Droppable';
+import { PLACE_BETS_TYPE } from '@/app/context/bets';
+
 interface NumberProps {
-  number: 4 | 5 | 6 | 8 | 9 | 10;
+  number: PLACE_BETS_TYPE;
   isPoint: boolean;
 }
 export const PlaceBet: FC<NumberProps> = ({ number, isPoint }) => {

@@ -1,11 +1,14 @@
-"use client";
-import { GameProvider } from "./context/GameProvider";
-import { UserProvider } from "./context/UserProvider";
+'use client';
+import { GameProvider } from './context/GameProvider';
+import { ToastProvider } from './context/ToastProvider';
+import { UserProvider } from './context/UserProvider';
 
 export default function Home() {
   return (
-    <UserProvider>
-      <GameProvider />
-    </UserProvider>
+    <ToastProvider>
+      <UserProvider>
+        <GameProvider />
+      </UserProvider>
+    </ToastProvider>
   );
 }
