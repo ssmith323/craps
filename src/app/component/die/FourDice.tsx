@@ -43,5 +43,5 @@ export const FourDie = () => {
         strokeWidth="2"
       />
     </svg>
-  );
-};
+  )
+}

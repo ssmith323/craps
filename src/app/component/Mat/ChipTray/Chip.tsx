@@ -1,13 +1,13 @@
-import { Draggable } from '../DragAndDrop/Draggable';
-
-interface ChipProps {
-  chip: IChip;
-}
+import { Draggable } from '../DragAndDrop/Draggable'
 
 export interface IChip {
-  color: string;
-  textColor?: string;
-  value: number;
+  color: string
+  textColor?: string
+  value: number
+}
+
+interface ChipProps {
+  chip: IChip
 }
 
 export const Chip = ({ chip }: ChipProps) => {
@@ -23,5 +23,5 @@ export const Chip = ({ chip }: ChipProps) => {
         {chip.value}
       </div>
     </Draggable>
-  );
-};
+  )
+}

@@ -1,9 +1,9 @@
-import clsx from 'clsx';
+import clsx from 'clsx'
 
 interface ToastProps {
-  message: string;
-  type: 'success' | 'error';
-  index: number;
+  message: string
+  type: 'success' | 'error'
+  index: number
 }
 
 export const Toast = ({ message, type, index }: ToastProps) => {
@@ -19,5 +19,5 @@ export const Toast = ({ message, type, index }: ToastProps) => {
     >
       {message}
     </div>
-  );
-};
+  )
+}

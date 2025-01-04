@@ -1,21 +1,19 @@
-import { UserContext } from '@/app/context/UserContext';
-import { FC, useContext, useState } from 'react';
-import { Chip } from '../../Chip';
-import { Button } from '../../reusable/Button';
-import { Droppable } from '../DragAndDrop/Droppable';
+import { UserContext } from '@/app/context/UserContext'
+import { FC, useContext } from 'react'
+import { Chip } from '../../Chip'
+import { Droppable } from '../DragAndDrop/Droppable'
 
 interface HardwayProps {
-  hardway: number;
+  hardway: number
 }
 
 export const Hardway: FC<HardwayProps> = ({ hardway }) => {
-  const { setMoney, bets } = useContext(UserContext);
+  const { setMoney, bets } = useContext(UserContext)
 
   const removeBet = () => {
-    (bets as any)[`setHard${hardway}`](null);
-    setMoney((money) => money + ((bets as any)[`hard${hardway}`] ?? 0));
-    // setBet("");
-  };
+    ;(bets as any)[`setHard${hardway}`](null)
+    setMoney((money) => money + ((bets as any)[`hard${hardway}`] ?? 0))
+  }
 
   return (
     <Droppable id={`setHard${hardway}`}>
@@ -24,5 +22,5 @@ export const Hardway: FC<HardwayProps> = ({ hardway }) => {
         <Chip bet={(bets as any)[`hard${hardway}`]} removeBet={removeBet} />
       </div>
     </Droppable>
-  );
-};
+  )
+}

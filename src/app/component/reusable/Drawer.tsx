@@ -1,10 +1,10 @@
-import clsx from 'clsx';
-import { ReactElement } from 'react';
+import clsx from 'clsx'
+import { ReactElement } from 'react'
 
 interface DrawerProps {
-  open: boolean;
-  onClose: () => void;
-  children: ReactElement<any>;
+  open: boolean
+  onClose: () => void
+  children: ReactElement<any>
 }
 
 export const Drawer = ({ open, onClose, children }: DrawerProps) => {
@@ -31,5 +31,5 @@ export const Drawer = ({ open, onClose, children }: DrawerProps) => {
         {children}
       </div>
     </div>
-  );
-};
+  )
+}

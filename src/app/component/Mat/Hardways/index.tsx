@@ -1,4 +1,4 @@
-import { Hardway } from './Hardway';
+import { Hardway } from './Hardway'
 
 export const Hardways = () => {
   return (
@@ -11,5 +11,5 @@ export const Hardways = () => {
         <Hardway hardway={8} />
       </div>
     </div>
-  );
-};
+  )
+}

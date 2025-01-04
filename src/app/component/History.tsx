@@ -1,12 +1,12 @@
-import { useContext, useState } from "react";
-import { HistoryContext } from "../context/HistoryContext";
-import { Drawer } from "./reusable/Drawer";
-import { Button } from "./reusable/Button";
+import { useContext, useState } from 'react'
+import { HistoryContext } from '../context/HistoryContext'
+import { Drawer } from './reusable/Drawer'
+import { Button } from './reusable/Button'
 
-const cellStyle = "px-2";
+const cellStyle = 'px-2'
 export const History = () => {
-  const { rolls } = useContext(HistoryContext);
-  const [open, setOpen] = useState(false);
+  const { rolls } = useContext(HistoryContext)
+  const [open, setOpen] = useState(false)
 
   return (
     <>
@@ -42,5 +42,5 @@ export const History = () => {
         </>
       </Drawer>
     </>
-  );
-};
+  )
+}

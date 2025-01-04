@@ -1,8 +1,6 @@
 {
   "extends": ["next/core-web-vitals", "standard"],
   "rules": {
-    "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/semi": "error",
-    "@typescript-eslint/quotes": ["error", "single"]
+    "comma-dangle": "off"
   }
 }

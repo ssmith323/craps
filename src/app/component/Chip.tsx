@@ -1,8 +1,8 @@
-import { FC } from 'react';
+import { FC } from 'react'
 
 interface ChipProps {
-  bet: number | null;
-  removeBet?: () => void;
+  bet: number | null
+  removeBet?: () => void
 }
 
 export const Chip: FC<ChipProps> = ({ bet, removeBet }) => {
@@ -16,5 +16,5 @@ export const Chip: FC<ChipProps> = ({ bet, removeBet }) => {
         {bet}
       </button>
     )
-  );
-};
+  )
+}

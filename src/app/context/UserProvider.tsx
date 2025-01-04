@@ -1,25 +1,25 @@
-import { FC, ReactElement, useState } from "react";
-import { UserContext } from "./UserContext";
+import { FC, ReactElement, useState } from 'react'
+import { UserContext } from './UserContext'
 
 interface UserProviderProps {
-  children: ReactElement<any>;
+  children: ReactElement<any>
 }
 
 export const UserProvider: FC<UserProviderProps> = ({ children }) => {
-  const [money, setMoney] = useState(1000);
-  const [fieldBet, setFieldBet] = useState<number | null>(null);
-  const [passBet, setPassBet] = useState<number | null>(null);
-  const [odds, setOdds] = useState<number | null>(null);
-  const [place4, setPlace4] = useState<number | null>(null);
-  const [place5, setPlace5] = useState<number | null>(null);
-  const [place6, setPlace6] = useState<number | null>(null);
-  const [place8, setPlace8] = useState<number | null>(null);
-  const [place9, setPlace9] = useState<number | null>(null);
-  const [place10, setPlace10] = useState<number | null>(null);
-  const [hard4, setHard4] = useState<number | null>(null);
-  const [hard6, setHard6] = useState<number | null>(null);
-  const [hard8, setHard8] = useState<number | null>(null);
-  const [hard10, setHard10] = useState<number | null>(null);
+  const [money, setMoney] = useState(1000)
+  const [fieldBet, setFieldBet] = useState<number | null>(null)
+  const [passBet, setPassBet] = useState<number | null>(null)
+  const [odds, setOdds] = useState<number | null>(null)
+  const [place4, setPlace4] = useState<number | null>(null)
+  const [place5, setPlace5] = useState<number | null>(null)
+  const [place6, setPlace6] = useState<number | null>(null)
+  const [place8, setPlace8] = useState<number | null>(null)
+  const [place9, setPlace9] = useState<number | null>(null)
+  const [place10, setPlace10] = useState<number | null>(null)
+  const [hard4, setHard4] = useState<number | null>(null)
+  const [hard6, setHard6] = useState<number | null>(null)
+  const [hard8, setHard8] = useState<number | null>(null)
+  const [hard10, setHard10] = useState<number | null>(null)
 
   return (
     <UserContext.Provider
@@ -58,5 +58,5 @@ export const UserProvider: FC<UserProviderProps> = ({ children }) => {
     >
       {children}
     </UserContext.Provider>
-  );
-};
+  )
+}

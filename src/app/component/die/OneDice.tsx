@@ -19,5 +19,5 @@ export const OneDie = () => {
         strokeWidth="2"
       />
     </svg>
-  );
-};
+  )
+}

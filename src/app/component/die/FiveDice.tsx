@@ -51,5 +51,5 @@ export const FiveDie = () => {
         strokeWidth="2"
       />
     </svg>
-  );
-};
+  )
+}

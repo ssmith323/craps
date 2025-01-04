@@ -35,5 +35,5 @@ export const ThreeDie = () => {
         strokeWidth="2"
       />
     </svg>
-  );
-};
+  )
+}

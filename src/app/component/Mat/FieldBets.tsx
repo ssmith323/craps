@@ -1,20 +1,20 @@
-import clsx from 'clsx';
-import { useContext } from 'react';
-import { FIELD_BETS } from '../../context/bets';
-import { UserContext } from '../../context/UserContext';
-import { Droppable } from './DragAndDrop/Droppable';
-import { Chip } from '../Chip';
+import clsx from 'clsx'
+import { useContext } from 'react'
+import { FIELD_BETS } from '../../context/bets'
+import { UserContext } from '../../context/UserContext'
+import { Droppable } from './DragAndDrop/Droppable'
+import { Chip } from '../Chip'
 
 export const FieldBets = () => {
   const {
     bets: { setField, field },
     setMoney,
-  } = useContext(UserContext);
+  } = useContext(UserContext)
 
   const removeBet = () => {
-    setField(null);
-    setMoney((money) => money + (field ?? 0));
-  };
+    setField(null)
+    setMoney((money) => money + (field ?? 0))
+  }
 
   return (
     <Droppable id="setField">
@@ -40,5 +40,5 @@ export const FieldBets = () => {
         <Chip bet={field} removeBet={removeBet} />
       </div>
     </Droppable>
-  );
-};
+  )
+}

@@ -1,20 +1,20 @@
-import { FC, useContext } from 'react';
-import { UserContext } from '../../../context/UserContext';
-import { Chip } from '../../Chip';
-import { Droppable } from '../DragAndDrop/Droppable';
-import { PLACE_BETS_TYPE } from '@/app/context/bets';
+import { FC, useContext } from 'react'
+import { UserContext } from '../../../context/UserContext'
+import { Chip } from '../../Chip'
+import { Droppable } from '../DragAndDrop/Droppable'
+import { PLACE_BETS_TYPE } from '@/app/context/bets'
 
 interface NumberProps {
-  number: PLACE_BETS_TYPE;
-  isPoint: boolean;
+  number: PLACE_BETS_TYPE
+  isPoint: boolean
 }
 export const PlaceBet: FC<NumberProps> = ({ number, isPoint }) => {
-  const { bets, setMoney } = useContext(UserContext);
+  const { bets, setMoney } = useContext(UserContext)
 
   const removeBet = () => {
-    (bets as any)[`setPlace${number}`](null);
-    setMoney((money) => money + ((bets as any)[`place${number}`] ?? 0));
-  };
+    ;(bets as any)[`setPlace${number}`](null)
+    setMoney((money) => money + ((bets as any)[`place${number}`] ?? 0))
+  }
 
   return (
     <div className="flex flex-col  text-white items-center h-full">
@@ -33,5 +33,5 @@ export const PlaceBet: FC<NumberProps> = ({ number, isPoint }) => {
         </div>
       </Droppable>
     </div>
-  );
-};
+  )
+}

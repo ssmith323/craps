@@ -59,5 +59,5 @@ export const SixDie = () => {
         strokeWidth="2"
       />
     </svg>
-  );
-};
+  )
+}

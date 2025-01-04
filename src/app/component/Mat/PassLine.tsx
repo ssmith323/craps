@@ -1,52 +1,42 @@
-import { useContext, useState } from 'react';
-import { UserContext } from '../../context/UserContext';
-import { GameContext } from '../../context/GameContext';
-import { Chip } from '../Chip';
-import { Button } from '../reusable/Button';
-import { Droppable } from './DragAndDrop/Droppable';
+import { useContext } from 'react'
+import { UserContext } from '../../context/UserContext'
+import { GameContext } from '../../context/GameContext'
+import { Chip } from '../Chip'
+import { Droppable } from './DragAndDrop/Droppable'
+import { useToast } from '@/app/context/ToastContext'
 
 export const PassLine = () => {
-  const [bet, setBet] = useState<string | null>();
-  const [oddsBet, setOddsBets] = useState<string | null>();
   const {
     bets: { pass, setPass, odds, setOdds },
     setMoney,
-    money,
-  } = useContext(UserContext);
-  const { point } = useContext(GameContext);
+  } = useContext(UserContext)
+  const { point } = useContext(GameContext)
+  const toast = useToast()
 
-  // const placeBet = () => {
-  //   const num = parseInt(bet ?? "0");
-  //   if (money > num) {
-  //     setPass((pass) => (pass ?? 0) + num);
-  //     setMoney((money) => money - num);
-  //     setBet("");
-  //   } else {
-  //     console.error("Not enough money to place the bet");
-  //   }
-  // };
+  const removeBet = () => {
+    if (!point) {
+      setPass(null)
+      setMoney((money) => money + (pass ?? 0))
+    } else {
+      toast.error('Cannot remove pass line bet after point is set')
+    }
+  }
 
-  // const addOdds = () => {
-  //   const num = parseInt(oddsBet ?? "0");
-  //   if (money > num) {
-  //     setOdds((odds) => (odds ?? 0) + num);
-  //     setMoney((money) => money - num);
-  //     setOddsBets("");
-  //   } else {
-  //     console.error("Not enough money to place the bet");
-  //   }
-  // };
+  const removeOdds = () => {
+    setOdds(null)
+    setMoney((money) => money + (odds ?? 0))
+  }
 
   return (
     <Droppable id={!point ? 'setPass' : 'setOdds'}>
       <div className="relative flex flex-col items-center border border-white h-12">
         <h3 className="text-bold">Pass Line</h3>
 
-        <Chip bet={pass} />
+        <Chip bet={pass} removeBet={removeBet} />
         <div className="relative h-1">
-          <Chip bet={odds} />
+          <Chip bet={odds} removeBet={removeOdds} />
         </div>
       </div>
     </Droppable>
-  );
-};
+  )
+}

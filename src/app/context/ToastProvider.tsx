@@ -1,30 +1,30 @@
-import { FC, ReactElement, useEffect, useState } from 'react';
-import { ToastContext } from './ToastContext';
-import { Toast } from '../component/reusable/Toast';
+import { FC, ReactElement, useEffect, useState } from 'react'
+import { ToastContext } from './ToastContext'
+import { Toast } from '../component/reusable/Toast'
 
 interface ToastProviderProps {
-  children: ReactElement<any>;
+  children: ReactElement<any>
 }
 
 interface IToast {
-  message: string;
-  type: 'success' | 'error';
+  message: string
+  type: 'success' | 'error'
 }
 
 export const ToastProvider: FC<ToastProviderProps> = ({ children }) => {
-  const [toast, setToast] = useState<IToast[]>([]);
+  const [toast, setToast] = useState<IToast[]>([])
 
   useEffect(() => {
     if (toast.length > 0) {
       setTimeout(() => {
-        setToast((toast) => toast.slice(1));
-      }, 3000);
+        setToast((toast) => toast.slice(1))
+      }, 3000)
     }
-  }, [toast, setToast]);
+  }, [toast, setToast])
 
   const addToast = (message: string, type: 'success' | 'error') => {
-    setToast((toast) => [...toast, { message, type }]);
-  };
+    setToast((toast) => [...toast, { message, type }])
+  }
 
   return (
     <ToastContext.Provider value={{ addToast }}>
@@ -33,5 +33,5 @@ export const ToastProvider: FC<ToastProviderProps> = ({ children }) => {
       ))}
       {children}
     </ToastContext.Provider>
-  );
-};
+  )
+}

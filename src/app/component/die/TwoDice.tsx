@@ -27,5 +27,5 @@ export const TwoDie = () => {
         strokeWidth="2"
       />
     </svg>
-  );
-};
+  )
+}

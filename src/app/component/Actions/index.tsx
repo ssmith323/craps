@@ -1,7 +1,7 @@
-import { FC } from "react";
-import { AllHardwaysButton } from "./AllHardwaysButton";
-import { RollButton } from "./RollButton";
-import { AllPlaceBetsButton } from "./AllPlaceBetsButton";
+import { FC } from 'react'
+import { AllHardwaysButton } from './AllHardwaysButton'
+import { RollButton } from './RollButton'
+import { AllPlaceBetsButton } from './AllPlaceBetsButton'
 
 export const Actions: FC = () => {
   return (
@@ -15,5 +15,5 @@ export const Actions: FC = () => {
       </div>
       <RollButton />
     </div>
-  );
-};
+  )
+}

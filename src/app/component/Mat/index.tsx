@@ -1,34 +1,34 @@
-import { FieldBets } from './FieldBets';
-import { PassLine } from './PassLine';
-import { Place } from './PlaceArea';
-import { Hardways } from './Hardways';
-import { Dices } from '../Dice';
-import { ChipTray } from './ChipTray';
-import { DndContext } from '@dnd-kit/core';
-import { useContext } from 'react';
-import { UserContext } from '@/app/context/UserContext';
-import { useToast } from '@/app/context/ToastContext';
+import { FieldBets } from './FieldBets'
+import { PassLine } from './PassLine'
+import { Place } from './PlaceArea'
+import { Hardways } from './Hardways'
+import { Dices } from '../Dice'
+import { ChipTray } from './ChipTray'
+import { DndContext } from '@dnd-kit/core'
+import { useContext } from 'react'
+import { UserContext } from '@/app/context/UserContext'
+import { useToast } from '@/app/context/ToastContext'
 
 export const Mat = () => {
-  const { money, setMoney, bets } = useContext(UserContext);
-  const toast = useToast();
+  const { money, setMoney, bets } = useContext(UserContext)
+  const toast = useToast()
 
   const handleDrag = (evt: any) => {
-    const num = parseInt(evt.active.id ?? '0');
+    const num = parseInt(evt.active.id ?? '0')
     if (money >= num) {
       try {
-        (bets as any)[evt.collisions[0].id](
+        ;(bets as any)[evt.collisions[0].id](
           (field: number) => (field ?? 0) + num,
-        );
-        setMoney((money) => money - num);
-        toast.success('Nice bet!');
+        )
+        setMoney((money) => money - num)
+        toast.success('Nice bet!')
       } catch (error) {
-        toast.error('Not valid bet');
+        toast.error('Not valid bet')
       }
     } else {
-      toast.error('Not enough money to place the bet');
+      toast.error('Not enough money to place the bet')
     }
-  };
+  }
 
   return (
     <DndContext onDragEnd={handleDrag}>
@@ -52,5 +52,5 @@ export const Mat = () => {
         <Dices />
       </div>
     </DndContext>
-  );
-};
+  )
+}
