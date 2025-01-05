@@ -6,9 +6,11 @@ interface ToastProviderProps {
   children: ReactElement<any>
 }
 
+export type AlertLevel = 'success' | 'error' | 'info'
+
 interface IToast {
   message: string
-  type: 'success' | 'error'
+  type: AlertLevel
 }
 
 export const ToastProvider: FC<ToastProviderProps> = ({ children }) => {
@@ -22,7 +24,7 @@ export const ToastProvider: FC<ToastProviderProps> = ({ children }) => {
     }
   }, [toast, setToast])
 
-  const addToast = (message: string, type: 'success' | 'error') => {
+  const addToast = (message: string, type: AlertLevel) => {
     setToast((toast) => [...toast, { message, type }])
   }
 

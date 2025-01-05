@@ -6,6 +6,7 @@ export enum GameState {
   INIT,
   ROLLING,
   PAYOUT,
+  START,
 }
 
 interface Game {

@@ -18,11 +18,13 @@ export const RollButton: FC = () => {
     const time1 = Math.ceil(Math.random() * 1000)
     const time2 = Math.ceil(Math.random() * 1000)
     setTimeout(() => {
-      setDie1(getDiceRoll())
+      const die = getDiceRoll()
+      setDie1(die)
       setState(die1 < 7 && die2 < 7 ? GameState.PAYOUT : GameState.ROLLING)
     }, time1)
     setTimeout(() => {
-      setDie2(getDiceRoll())
+      const die = getDiceRoll()
+      setDie2(die)
       setState(die1 < 7 && die2 < 7 ? GameState.PAYOUT : GameState.ROLLING)
     }, time2)
   }

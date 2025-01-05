@@ -3,8 +3,10 @@ import { Button } from '../reusable/Button'
 import { UserContext } from '@/app/context/UserContext'
 import { GameContext } from '@/app/context/GameContext'
 import { PLACE_NUMBERS } from '@/app/context/bets'
+import { useToast } from '@/app/context/ToastContext'
 
 export const AllPlaceBetsButton: FC = () => {
+  const toast = useToast()
   const { money, setMoney, bets } = useContext(UserContext)
   const { point } = useContext(GameContext)
   const [bet, setBet] = useState<string | null>()
@@ -19,21 +21,19 @@ export const AllPlaceBetsButton: FC = () => {
             const reminder = num % 6
             num2 += 6 - reminder
           }
-          ;(bets as any)[`setPlace${place}`](
-            (field: number) => (field ?? 0) + num2,
-          )
+          bets[`setPlace${place}`]((b: number | null) => (b ?? 0) + num2)
         }
       })
       setMoney((money) => money - PLACE_NUMBERS.length * num)
       setBet('')
     } else {
-      console.error('Not enough money to place the bet')
+      toast.error('Not enough money to place the bet')
     }
   }
   return (
     <div className="flex flex-col space-y-1">
       <input
-        className="text-black"
+        className="text-black rounded-xl p-1"
         onChange={(event) => setBet(event.currentTarget.value)}
         type="number"
         value={bet ?? ''}

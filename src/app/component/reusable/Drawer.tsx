@@ -20,7 +20,7 @@ export const Drawer = ({ open, onClose, children }: DrawerProps) => {
     >
       <div
         className={clsx(
-          'fixed top-0 left-0 w-96 h-full bg-white text-black shadow-lg',
+          'fixed top-0 left-0 w-96 h-full bg-white text-black shadow-lg overflow-x-scroll',
           {
             'translate-x-0': open,
             '-translate-x-full': !open,
