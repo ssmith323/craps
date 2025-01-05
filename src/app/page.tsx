@@ -3,7 +3,8 @@ import { GameProvider } from './context/GameProvider'
 import { ToastProvider } from './context/ToastProvider'
 import { UserProvider } from './context/UserProvider'
 
-export const Home = () => {
+// eslint-disable-next-line space-before-function-paren
+export default function Home() {
   return (
     <ToastProvider>
       <UserProvider>
@@ -12,5 +13,3 @@ export const Home = () => {
     </ToastProvider>
   )
 }
-
-export default Home
