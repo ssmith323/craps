@@ -1,3 +1,4 @@
+'use client'
 import { FC, ReactElement, useEffect, useState } from 'react'
 import { ToastContext } from './ToastContext'
 import { Toast } from '../component/reusable/Toast'

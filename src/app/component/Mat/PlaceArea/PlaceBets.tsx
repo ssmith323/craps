@@ -12,8 +12,8 @@ export const PlaceBet: FC<NumberProps> = ({ number, isPoint }) => {
   const { bets, setMoney } = useContext(UserContext)
 
   const removeBet = () => {
-    ;(bets as any)[`setPlace${number}`](null)
-    setMoney((money) => money + ((bets as any)[`place${number}`] ?? 0))
+    bets[`setPlace${number}`](null)
+    setMoney((money) => money + (bets[`place${number}`] ?? 0))
   }
 
   return (
@@ -29,7 +29,7 @@ export const PlaceBet: FC<NumberProps> = ({ number, isPoint }) => {
       </div>
       <Droppable id={`setPlace${number}`}>
         <div className="relative border border-white h-4 w-full">
-          <Chip bet={(bets as any)[`place${number}`]} removeBet={removeBet} />
+          <Chip bet={bets[`place${number}`]} removeBet={removeBet} />
         </div>
       </Droppable>
     </div>

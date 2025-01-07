@@ -1,12 +1,13 @@
-import { FC, ReactElement, useState } from 'react'
+'use client'
+import { FC, ReactNode, useState } from 'react'
 import { UserContext } from './UserContext'
 
 interface UserProviderProps {
-  children: ReactElement<any>
+  children: ReactNode
 }
 
 export const UserProvider: FC<UserProviderProps> = ({ children }) => {
-  const [money, setMoney] = useState(1000)
+  const [money, setMoney] = useState(-1)
   const [fieldBet, setFieldBet] = useState<number | null>(null)
   const [passBet, setPassBet] = useState<number | null>(null)
   const [odds, setOdds] = useState<number | null>(null)
