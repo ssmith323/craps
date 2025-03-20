@@ -1,10 +1,10 @@
 'use client'
 import { useRouter } from 'next/navigation'
 import { useContext, useState } from 'react'
-import { UserContext } from './context/UserContext'
-import { Button } from './component/reusable/Button'
-import { Input } from './component/reusable/Input'
-import { useToast } from './context/ToastContext'
+import { UserContext } from './craps/context/UserContext'
+import { Button } from './common/Button'
+import { Input } from './common/Input'
+import { useToast } from './common/ToastContext'
 
 // eslint-disable-next-line space-before-function-paren
 export default function Home() {
@@ -13,13 +13,13 @@ export default function Home() {
   const { setMoney } = useContext(UserContext)
   const [initalMoney, setInitalMoney] = useState<number | undefined>()
 
-  const startGame = () => {
+  const startGame = (path: string) => {
     if (!initalMoney) {
       toast.error('Please enter a valid amount of money')
       return
     }
     setMoney(initalMoney)
-    router.push('/table')
+    router.push(path)
   }
   return (
     <div className="flex flex-col items-center justify-center h-screen">
@@ -35,7 +35,10 @@ export default function Home() {
         >
           Starting Money
         </Input>
-        <Button onClick={startGame}>Start</Button>
+        <Button onClick={() => startGame('/craps')}>Go to Craps Table</Button>
+        <Button onClick={() => startGame('/blackjack')}>
+          Go to Blackjack Table
+        </Button>
       </div>
     </div>
   )
