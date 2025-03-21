@@ -4,10 +4,13 @@ import { UserContext } from '@/app/craps/context/UserContext'
 import { GameContext } from '@/app/craps/GameContext'
 import { PLACE_NUMBERS } from '@/app/craps/bets'
 import { useToast } from '@/app/common/ToastContext'
+import { CrapsContext } from '../../context/CrapsBetsContext'
+import { Input } from '@/app/common/Input'
 
 export const AllPlaceBetsButton: FC = () => {
   const toast = useToast()
-  const { money, setMoney, bets } = useContext(UserContext)
+  const { money, setMoney } = useContext(UserContext)
+  const { bets } = useContext(CrapsContext)
   const { point } = useContext(GameContext)
   const [bet, setBet] = useState<string | null>()
 
@@ -32,8 +35,7 @@ export const AllPlaceBetsButton: FC = () => {
   }
   return (
     <div className="flex flex-col space-y-1">
-      <input
-        className="text-black rounded-xl p-1"
+      <Input
         onChange={(event) => setBet(event.currentTarget.value)}
         type="number"
         value={bet ?? ''}

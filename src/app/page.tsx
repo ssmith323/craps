@@ -11,7 +11,7 @@ export default function Home() {
   const router = useRouter()
   const toast = useToast()
   const { setMoney } = useContext(UserContext)
-  const [initalMoney, setInitalMoney] = useState<number | undefined>()
+  const [initalMoney, setInitalMoney] = useState<number>(0)
 
   const startGame = (path: string) => {
     if (!initalMoney) {
@@ -31,7 +31,7 @@ export default function Home() {
           onChange={(event) =>
             setInitalMoney(parseInt(event.currentTarget.value, 10))
           }
-          value={initalMoney}
+          value={initalMoney ?? ''}
         >
           Starting Money
         </Input>

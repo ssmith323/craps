@@ -8,9 +8,11 @@ import { DndContext } from '@dnd-kit/core'
 import { useContext } from 'react'
 import { UserContext } from '@/app/craps/context/UserContext'
 import { useToast } from '@/app/common/ToastContext'
+import { CrapsContext } from '../../context/CrapsBetsContext'
 
 export const Mat = () => {
-  const { money, setMoney, bets } = useContext(UserContext)
+  const { money, setMoney } = useContext(UserContext)
+  const { bets } = useContext(CrapsContext)
   const toast = useToast()
 
   const handleDrag = (evt: any) => {

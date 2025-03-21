@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { UserContext } from './UserContext'
 import { GameContext } from '../GameContext'
 import { BetResults, IGameResults } from './useCheckWinners'
+import { CrapsContext } from './CrapsBetsContext'
 
 const ODDS_PAYOUT = new Map([
   [4, 2],
@@ -29,7 +30,8 @@ const HARDWAYS_PAYOUT = new Map([
 ])
 
 export const usePayout = () => {
-  const { bets, setMoney } = useContext(UserContext)
+  const { setMoney } = useContext(UserContext)
+  const { bets } = useContext(CrapsContext)
   const { die1, die2 } = useContext(GameContext)
 
   const payoutUser = (results: IGameResults) => {

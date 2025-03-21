@@ -1,9 +1,9 @@
 import { useContext } from 'react'
-import { UserContext } from './UserContext'
 import { HistoryContext } from './HistoryContext'
+import { CrapsContext } from './CrapsBetsContext'
 
 export const useHistory = () => {
-  const { bets } = useContext(UserContext)
+  const { bets } = useContext(CrapsContext)
   const { rolls, addRoll } = useContext(HistoryContext)
   const getTotalBet = (): number => {
     return Object.values(bets)

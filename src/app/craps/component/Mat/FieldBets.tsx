@@ -4,12 +4,13 @@ import { FIELD_BETS } from '../../bets'
 import { UserContext } from '../../context/UserContext'
 import { Droppable } from './DragAndDrop/Droppable'
 import { Chip } from '../Chip'
+import { CrapsContext } from '../../context/CrapsBetsContext'
 
 export const FieldBets = () => {
+  const { setMoney } = useContext(UserContext)
   const {
     bets: { setField, field },
-    setMoney,
-  } = useContext(UserContext)
+  } = useContext(CrapsContext)
 
   const removeBet = () => {
     setField(null)

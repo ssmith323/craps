@@ -12,7 +12,7 @@ export default function BlackjackTable() {
 
   const [deck, setDeck] = useState(new Deck())
   const [gameState, setGameState] = useState<
-    'init' | 'player-playing' | 'dealer-playing' | 'gameover'
+    'init' | 'player-playing' | 'dealer-playing' | 'dealer-draw' | 'gameover'
   >('init')
   const [playerHand, setPlayerHand] = useState<Card[]>([])
   const [dealerHand, setDealerHand] = useState<Card[]>([])

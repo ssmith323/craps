@@ -3,14 +3,15 @@ import { UserContext } from '../../../context/UserContext'
 import { Chip } from '../../Chip'
 import { Droppable } from '../DragAndDrop/Droppable'
 import { PLACE_BETS_TYPE } from '@/app/craps/bets'
+import { CrapsContext } from '@/app/craps/context/CrapsBetsContext'
 
 interface NumberProps {
   number: PLACE_BETS_TYPE
   isPoint: boolean
 }
 export const PlaceBet: FC<NumberProps> = ({ number, isPoint }) => {
-  const { bets, setMoney } = useContext(UserContext)
-
+  const { setMoney } = useContext(UserContext)
+  const { bets } = useContext(CrapsContext)
   const removeBet = () => {
     bets[`setPlace${number}`](null)
     setMoney((money) => money + (bets[`place${number}`] ?? 0))

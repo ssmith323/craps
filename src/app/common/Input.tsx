@@ -9,7 +9,11 @@ export const Input: FC<InputProps> = ({ children, ...props }) => {
       <label htmlFor={id} className="text-gray-300">
         {children}
       </label>
-      <input id={id} className="text-black rounded-xl p-1" {...props} />
+      <input
+        id={id}
+        className="text-black bg-white rounded-xl p-1"
+        {...props}
+      />
     </div>
   )
 }

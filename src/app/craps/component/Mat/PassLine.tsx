@@ -4,12 +4,13 @@ import { GameContext } from '../../GameContext'
 import { Chip } from '../Chip'
 import { Droppable } from './DragAndDrop/Droppable'
 import { useToast } from '@/app/common/ToastContext'
+import { CrapsContext } from '../../context/CrapsBetsContext'
 
 export const PassLine = () => {
+  const { setMoney } = useContext(UserContext)
   const {
     bets: { pass, setPass, odds, setOdds },
-    setMoney,
-  } = useContext(UserContext)
+  } = useContext(CrapsContext)
   const { point } = useContext(GameContext)
   const toast = useToast()
 
