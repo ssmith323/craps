@@ -1,6 +1,7 @@
 {
   "extends": ["next/core-web-vitals", "standard"],
   "rules": {
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "space-before-function-paren": "off"
   }
 }

@@ -3,8 +3,8 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { ReactNode } from 'react'
 import clsx from 'clsx'
-import { ToastProvider } from './context/ToastProvider'
-import { UserProvider } from './context/UserProvider'
+import { ToastProvider } from './common/ToastProvider'
+import { UserProvider } from './craps/context/UserProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
