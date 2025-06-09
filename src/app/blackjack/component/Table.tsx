@@ -1,103 +1,30 @@
 'use client'
 import { Button } from '@/app/common/Button'
-import { BlackjackContext } from '../context/BlackjackContext'
+import { useBlackjackContext } from '../context/BlackjackContext'
 import { Hand } from './hand'
-import { useContext, useEffect, useState } from 'react'
-import { BLACKJACK_GAME_STATE } from '../types'
-import { Card, CardNumberValue } from './card'
-import Deck from './deck'
-import { UserContext } from '@/app/craps/context/UserContext'
 import { useToast } from '@/app/common/ToastContext'
 import { DndContext } from '@dnd-kit/core'
 import { ChipTray } from '@/app/common/ChipTray'
 import { Droppable } from '@/app/common/DragAndDrop/Droppable'
 import { Chip } from '@/app/common/Chip'
+import { useUserContext } from '@/app/craps/context/UserContext'
 
 export const Table = () => {
-  const { bet, setBet } = useContext(BlackjackContext)
+  const {
+    bet,
+    setBet,
+    stand,
+    deal,
+    hit,
+    playerScore,
+    dealerScore,
+    dealerHand,
+    playerHand,
+    deck,
+    gameState,
+  } = useBlackjackContext()
   const toast = useToast()
-  const { money, setMoney } = useContext(UserContext)
-
-  const [deck, setDeck] = useState(new Deck())
-  const [gameState, setGameState] = useState<BLACKJACK_GAME_STATE>('init')
-  const [playerHand, setPlayerHand] = useState<Card[]>([])
-  const [dealerHand, setDealerHand] = useState<Card[]>([])
-  const [playerScore, setPlayerScore] = useState<number>(0)
-  const [dealerScore, setDealerScore] = useState<number>(0)
-
-  useEffect(() => {
-    if (gameState === 'gameover' && deck.cards.length < 10) {
-      setDeck(new Deck())
-      toast.info('Deck shuffled, new game started!')
-    }
-  }, [gameState])
-
-  useEffect(() => {
-    if (['dealer-playing'].includes(gameState)) {
-      const dealerScore = dealerHand.reduce(
-        (acc, card) => acc + CardNumberValue[card.value]!,
-        0,
-      )
-      setDealerScore(dealerScore)
-      if (dealerScore > 21) {
-        setGameState('gameover')
-        setMoney((money) => money + (bet ?? 0))
-        toast.success('Dealer busted!')
-      } else if (dealerScore >= 17) {
-        if (dealerScore > playerScore) {
-          setGameState('gameover')
-          setBet(null)
-          toast.error('Dealer wins!')
-        } else if (dealerScore < playerScore) {
-          setGameState('gameover')
-          setMoney((money) => money + (bet ?? 0))
-          toast.success('Player wins!')
-        } else {
-          setGameState('gameover')
-          toast.info('It is a tie!')
-        }
-      } else {
-        const card = deck.drawCard()
-        setDealerHand((hand) => [...hand, card])
-      }
-    }
-  }, [dealerHand, gameState])
-
-  useEffect(() => {
-    if (playerHand.length > 0) {
-      const playerScore = playerHand.reduce(
-        (acc, card) => acc + CardNumberValue[card.value]!,
-        0,
-      )
-      setPlayerScore(playerScore)
-      if (playerScore > 21) {
-        setGameState('gameover')
-        setBet(null)
-        toast.error('You busted!')
-      }
-    }
-  }, [playerHand])
-
-  const deal = () => {
-    const playerCard1 = deck.drawCard()
-    const dealerCard1 = deck.drawCard()
-    const playerCard2 = deck.drawCard()
-    const dealerCard2 = deck.drawCard()
-    setDealerScore(0)
-    setPlayerHand([playerCard1, playerCard2])
-    setDealerHand([dealerCard1, dealerCard2])
-    setGameState('player-playing')
-  }
-
-  const hit = () => {
-    const card = deck.drawCard()
-
-    setPlayerHand((hand) => [...hand, card])
-  }
-
-  const stand = () => {
-    setGameState('dealer-playing')
-  }
+  const { money, setMoney } = useUserContext()
 
   const removeBet = () => {
     setBet(null)

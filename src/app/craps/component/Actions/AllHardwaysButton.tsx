@@ -1,14 +1,14 @@
+import { Input } from '@/app/common/Input'
+import { useToast } from '@/app/common/ToastContext'
+import { HARDWAYS_NUMBERS } from '@/app/craps/bets'
+import { useUserContext } from '@/app/craps/context/UserContext'
 import { FC, useContext, useState } from 'react'
 import { Button } from '../../../common/Button'
-import { UserContext } from '@/app/craps/context/UserContext'
-import { HARDWAYS_NUMBERS } from '@/app/craps/bets'
-import { useToast } from '@/app/common/ToastContext'
 import { CrapsContext } from '../../context/CrapsBetsContext'
-import { Input } from '@/app/common/Input'
 
 export const AllHardwaysButton: FC = () => {
   const toast = useToast()
-  const { money, setMoney } = useContext(UserContext)
+  const { money, setMoney } = useUserContext()
   const { bets } = useContext(CrapsContext)
   const [bet, setBet] = useState<string | null>()
 

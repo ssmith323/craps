@@ -1,13 +1,13 @@
 import clsx from 'clsx'
 import { useContext } from 'react'
-import { FIELD_BETS } from '../../bets'
-import { UserContext } from '../../context/UserContext'
-import { Droppable } from '../../../common/DragAndDrop/Droppable'
 import { Chip } from '../../../common/Chip'
+import { Droppable } from '../../../common/DragAndDrop/Droppable'
+import { FIELD_BETS } from '../../bets'
 import { CrapsContext } from '../../context/CrapsBetsContext'
+import { useUserContext } from '../../context/UserContext'
 
 export const FieldBets = () => {
-  const { setMoney } = useContext(UserContext)
+  const { setMoney } = useUserContext()
   const {
     bets: { setField, field },
   } = useContext(CrapsContext)

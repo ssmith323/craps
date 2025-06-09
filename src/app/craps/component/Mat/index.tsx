@@ -1,17 +1,17 @@
-import { FieldBets } from './FieldBets'
-import { PassLine } from './PassLine'
-import { Place } from './PlaceArea'
-import { Hardways } from './Hardways'
-import { Dices } from '../Dice'
-import { ChipTray } from '../../../common/ChipTray'
+import { useToast } from '@/app/common/ToastContext'
+import { useUserContext } from '@/app/craps/context/UserContext'
 import { DndContext } from '@dnd-kit/core'
 import { useContext } from 'react'
-import { UserContext } from '@/app/craps/context/UserContext'
-import { useToast } from '@/app/common/ToastContext'
+import { ChipTray } from '../../../common/ChipTray'
 import { CrapsContext } from '../../context/CrapsBetsContext'
+import { Dices } from '../Dice'
+import { FieldBets } from './FieldBets'
+import { Hardways } from './Hardways'
+import { PassLine } from './PassLine'
+import { Place } from './PlaceArea'
 
 export const Mat = () => {
-  const { money, setMoney } = useContext(UserContext)
+  const { money, setMoney } = useUserContext()
   const { bets } = useContext(CrapsContext)
   const toast = useToast()
 

@@ -1,7 +1,7 @@
 'use client'
 import { useRouter } from 'next/navigation'
-import { useContext, useState } from 'react'
-import { UserContext } from './craps/context/UserContext'
+import { useState } from 'react'
+import { useUserContext } from './craps/context/UserContext'
 import { Button } from './common/Button'
 import { Input } from './common/Input'
 import { useToast } from './common/ToastContext'
@@ -9,7 +9,7 @@ import { useToast } from './common/ToastContext'
 export default function Home() {
   const router = useRouter()
   const toast = useToast()
-  const { setMoney } = useContext(UserContext)
+  const { setMoney } = useUserContext()
   const [initalMoney, setInitalMoney] = useState<number>(0)
 
   const startGame = (path: string) => {

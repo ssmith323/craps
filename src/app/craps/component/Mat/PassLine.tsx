@@ -1,13 +1,13 @@
+import { useToast } from '@/app/common/ToastContext'
 import { useContext } from 'react'
-import { UserContext } from '../../context/UserContext'
-import { GameContext } from '../../GameContext'
 import { Chip } from '../../../common/Chip'
 import { Droppable } from '../../../common/DragAndDrop/Droppable'
-import { useToast } from '@/app/common/ToastContext'
 import { CrapsContext } from '../../context/CrapsBetsContext'
+import { useUserContext } from '../../context/UserContext'
+import { GameContext } from '../../GameContext'
 
 export const PassLine = () => {
-  const { setMoney } = useContext(UserContext)
+  const { setMoney } = useUserContext()
   const {
     bets: { pass, setPass, odds, setOdds },
   } = useContext(CrapsContext)

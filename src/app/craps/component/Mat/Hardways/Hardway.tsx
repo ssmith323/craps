@@ -1,15 +1,15 @@
-import { UserContext } from '@/app/craps/context/UserContext'
+import { CrapsContext } from '@/app/craps/context/CrapsBetsContext'
+import { useUserContext } from '@/app/craps/context/UserContext'
 import { FC, useContext } from 'react'
 import { Chip } from '../../../../common/Chip'
 import { Droppable } from '../../../../common/DragAndDrop/Droppable'
-import { CrapsContext } from '@/app/craps/context/CrapsBetsContext'
 
 interface HardwayProps {
   hardway: number
 }
 
 export const Hardway: FC<HardwayProps> = ({ hardway }) => {
-  const { setMoney } = useContext(UserContext)
+  const { setMoney } = useUserContext()
   const { bets } = useContext(CrapsContext)
 
   const removeBet = () => {

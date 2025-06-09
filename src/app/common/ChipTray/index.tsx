@@ -1,6 +1,5 @@
-import { useContext } from 'react'
+import { useUserContext } from '@/app/craps/context/UserContext'
 import { Chip, IChip } from './Chip'
-import { UserContext } from '@/app/craps/context/UserContext'
 
 const TRAY: IChip[] = [
   { color: 'white', value: 1, textColor: 'black' },
@@ -11,7 +10,7 @@ const TRAY: IChip[] = [
 ]
 
 export const ChipTray = () => {
-  const { money } = useContext(UserContext)
+  const { money } = useUserContext()
   return (
     <div className="space-x-2">
       {TRAY.filter(({ value }) => value <= money).map((chip) => (

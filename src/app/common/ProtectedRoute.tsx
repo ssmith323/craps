@@ -1,9 +1,9 @@
-import { FC, PropsWithChildren, useContext } from 'react'
+import { FC, PropsWithChildren } from 'react'
 import { useRouter } from 'next/navigation'
-import { UserContext } from '../craps/context/UserContext'
+import { useUserContext } from '../craps/context/UserContext'
 
 const ProtectedRoute: FC<PropsWithChildren> = ({ children }) => {
-  const { money } = useContext(UserContext)
+  const { money } = useUserContext()
   const router = useRouter()
 
   if (money < 0) {
