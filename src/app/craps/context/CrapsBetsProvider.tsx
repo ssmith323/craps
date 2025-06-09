@@ -1,12 +1,8 @@
 'use client'
-import { FC, ReactNode, useState } from 'react'
+import { FC, PropsWithChildren, useState } from 'react'
 import { CrapsContext } from './CrapsBetsContext'
 
-interface UserProviderProps {
-  children: ReactNode
-}
-
-export const CrapsBetsProvider: FC<UserProviderProps> = ({ children }) => {
+export const CrapsBetsProvider: FC<PropsWithChildren> = ({ children }) => {
   const [fieldBet, setFieldBet] = useState<number | null>(null)
   const [passBet, setPassBet] = useState<number | null>(null)
   const [odds, setOdds] = useState<number | null>(null)

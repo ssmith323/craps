@@ -1,11 +1,7 @@
 'use client'
-import { FC, ReactElement, useEffect, useState } from 'react'
+import { FC, PropsWithChildren, useEffect, useState } from 'react'
 import { ToastContext } from './ToastContext'
 import { Toast } from './Toast'
-
-interface ToastProviderProps {
-  children: ReactElement<any>
-}
 
 export type AlertLevel = 'success' | 'error' | 'info'
 
@@ -14,7 +10,7 @@ interface IToast {
   type: AlertLevel
 }
 
-export const ToastProvider: FC<ToastProviderProps> = ({ children }) => {
+export const ToastProvider: FC<PropsWithChildren> = ({ children }) => {
   const [toast, setToast] = useState<IToast[]>([])
 
   useEffect(() => {

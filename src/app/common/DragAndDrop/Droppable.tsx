@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { FC, PropsWithChildren } from 'react'
 import { useDroppable } from '@dnd-kit/core'
 
-export const Droppable = ({ id, children }: { id: string; children: any }) => {
+interface DroppableProps {
+  id: string
+}
+
+export const Droppable: FC<PropsWithChildren<DroppableProps>> = ({
+  id,
+  children,
+}) => {
   const { isOver, setNodeRef } = useDroppable({
     id,
   })

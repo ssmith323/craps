@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { FC, PropsWithChildren } from 'react'
 import { useDraggable } from '@dnd-kit/core'
 import { CSS } from '@dnd-kit/utilities'
 
-export const Draggable = ({ id, children }: { id: string; children: any }) => {
+interface DraggableProps {
+  id: string
+}
+
+export const Draggable: FC<PropsWithChildren<DraggableProps>> = ({
+  id,
+  children,
+}) => {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id,
   })

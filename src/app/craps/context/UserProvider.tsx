@@ -1,12 +1,8 @@
 'use client'
-import { FC, ReactNode, useState } from 'react'
+import { FC, PropsWithChildren, useState } from 'react'
 import { UserContext } from './UserContext'
 
-interface UserProviderProps {
-  children: ReactNode
-}
-
-export const UserProvider: FC<UserProviderProps> = ({ children }) => {
+export const UserProvider: FC<PropsWithChildren> = ({ children }) => {
   const [money, setMoney] = useState(-1)
 
   return (

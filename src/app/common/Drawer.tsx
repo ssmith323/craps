@@ -1,13 +1,16 @@
 import clsx from 'clsx'
-import { ReactElement } from 'react'
+import { FC, PropsWithChildren } from 'react'
 
 interface DrawerProps {
   open: boolean
   onClose: () => void
-  children: ReactElement<any>
 }
 
-export const Drawer = ({ open, onClose, children }: DrawerProps) => {
+export const Drawer: FC<PropsWithChildren<DrawerProps>> = ({
+  open,
+  onClose,
+  children,
+}) => {
   return (
     <div
       className={clsx(
