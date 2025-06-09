@@ -1,8 +1,8 @@
 import { useContext } from 'react'
 import { UserContext } from '../../context/UserContext'
 import { GameContext } from '../../GameContext'
-import { Chip } from '../Chip'
-import { Droppable } from './DragAndDrop/Droppable'
+import { Chip } from '../../../common/Chip'
+import { Droppable } from '../../../common/DragAndDrop/Droppable'
 import { useToast } from '@/app/common/ToastContext'
 import { CrapsContext } from '../../context/CrapsBetsContext'
 

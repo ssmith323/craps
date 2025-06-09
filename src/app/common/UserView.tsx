@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { UserContext } from '../context/UserContext'
+import { UserContext } from '../craps/context/UserContext'
 
 export const UserView = () => {
   const { money } = useContext(UserContext)

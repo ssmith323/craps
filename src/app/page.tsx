@@ -6,7 +6,6 @@ import { Button } from './common/Button'
 import { Input } from './common/Input'
 import { useToast } from './common/ToastContext'
 
-// eslint-disable-next-line space-before-function-paren
 export default function Home() {
   const router = useRouter()
   const toast = useToast()

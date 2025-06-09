@@ -1,10 +1,11 @@
 import clsx from 'clsx'
 import { Card, Suit, SuitIcon } from './card'
+import { BLACKJACK_GAME_STATE } from '../types'
 
 interface HandProps {
   cards: Card[]
   isDealer?: boolean
-  gameState: 'init' | 'player-playing' | 'dealer-playing' | 'gameover'
+  gameState: BLACKJACK_GAME_STATE
 }
 export const Hand = ({ cards, isDealer, gameState }: HandProps) => {
   return (

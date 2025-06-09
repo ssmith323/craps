@@ -58,3 +58,11 @@ export const CrapsBetsProvider: FC<UserProviderProps> = ({ children }) => {
     </CrapsContext.Provider>
   )
 }
+
+export const useCrapsBets = () => {
+  const context = CrapsContext
+  if (!context) {
+    throw new Error('useCrapsBets must be used within a CrapsBetsProvider')
+  }
+  return context
+}

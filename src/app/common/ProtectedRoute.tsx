@@ -1,8 +1,8 @@
-import { useContext } from 'react'
+import { FC, PropsWithChildren, useContext } from 'react'
 import { useRouter } from 'next/navigation'
 import { UserContext } from '../craps/context/UserContext'
 
-const ProtectedRoute = ({ children }: any) => {
+const ProtectedRoute: FC<PropsWithChildren> = ({ children }) => {
   const { money } = useContext(UserContext)
   const router = useRouter()
 

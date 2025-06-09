@@ -2,8 +2,8 @@ import clsx from 'clsx'
 import { useContext } from 'react'
 import { FIELD_BETS } from '../../bets'
 import { UserContext } from '../../context/UserContext'
-import { Droppable } from './DragAndDrop/Droppable'
-import { Chip } from '../Chip'
+import { Droppable } from '../../../common/DragAndDrop/Droppable'
+import { Chip } from '../../../common/Chip'
 import { CrapsContext } from '../../context/CrapsBetsContext'
 
 export const FieldBets = () => {

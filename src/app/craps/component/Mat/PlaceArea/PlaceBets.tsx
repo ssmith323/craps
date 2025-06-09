@@ -1,7 +1,7 @@
 import { FC, useContext } from 'react'
 import { UserContext } from '../../../context/UserContext'
-import { Chip } from '../../Chip'
-import { Droppable } from '../DragAndDrop/Droppable'
+import { Chip } from '../../../../common/Chip'
+import { Droppable } from '../../../../common/DragAndDrop/Droppable'
 import { PLACE_BETS_TYPE } from '@/app/craps/bets'
 import { CrapsContext } from '@/app/craps/context/CrapsBetsContext'
 

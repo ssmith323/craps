@@ -1,7 +1,7 @@
 import { UserContext } from '@/app/craps/context/UserContext'
 import { FC, useContext } from 'react'
-import { Chip } from '../../Chip'
-import { Droppable } from '../DragAndDrop/Droppable'
+import { Chip } from '../../../../common/Chip'
+import { Droppable } from '../../../../common/DragAndDrop/Droppable'
 import { CrapsContext } from '@/app/craps/context/CrapsBetsContext'
 
 interface HardwayProps {

@@ -3,8 +3,9 @@ import { UserContext } from './UserContext'
 import { GameContext } from '../GameContext'
 import { BetResults, IGameResults } from './useCheckWinners'
 import { CrapsContext } from './CrapsBetsContext'
+import { PLACE_BETS_TYPE } from '../bets'
 
-const ODDS_PAYOUT = new Map([
+const ODDS_PAYOUT = new Map<PLACE_BETS_TYPE, number>([
   [4, 2],
   [5, 1.5],
   [6, 1.2],
@@ -13,7 +14,7 @@ const ODDS_PAYOUT = new Map([
   [8, 1.2],
 ])
 
-const PLACE_PAYOUT = new Map([
+const PLACE_PAYOUT = new Map<PLACE_BETS_TYPE, number>([
   [4, 1.8],
   [5, 1.4],
   [6, 1.16666666667],
@@ -50,7 +51,9 @@ export const usePayout = () => {
       let payout = bets.pass
       if (results.odds && bets.odds != null) {
         payout +=
-          Math.floor(ODDS_PAYOUT.get(die1 + die2)! * bets.odds) + bets.odds
+          Math.floor(
+            ODDS_PAYOUT.get((die1 + die2) as PLACE_BETS_TYPE)! * bets.odds,
+          ) + bets.odds
         bets.setOdds(null)
       }
       winnings += payout
@@ -63,7 +66,8 @@ export const usePayout = () => {
     }
     if (results.place === BetResults.PAY) {
       const payout = Math.floor(
-        PLACE_PAYOUT.get(die1 + die2)! * (bets as any)[`place${die1 + die2}`],
+        PLACE_PAYOUT.get((die1 + die2) as PLACE_BETS_TYPE)! *
+          (bets as any)[`place${die1 + die2}`],
       )
       winnings += payout
       setMoney((m) => m + payout)
