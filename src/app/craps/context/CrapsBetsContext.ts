@@ -1,5 +1,5 @@
 'use client'
-import { Dispatch, SetStateAction, createContext } from 'react'
+import { Dispatch, SetStateAction, createContext, useContext } from 'react'
 
 interface ICrapsBets {
   pass: number | null
@@ -35,3 +35,11 @@ interface ICraps {
 }
 
 export const CrapsContext = createContext<ICraps>({} as ICraps)
+
+export const useCrapsContext = () => {
+  const context = useContext(CrapsContext)
+  if (!context) {
+    throw new Error('useCrapsContext must be used within a CrapsProvider')
+  }
+  return context
+}

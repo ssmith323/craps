@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { PLACE_BETS_TYPE } from '../bets'
 import { GameContext } from '../GameContext'
-import { CrapsContext } from './CrapsBetsContext'
+import { useCrapsContext } from './CrapsBetsContext'
 import { BetResults, IGameResults } from './useCheckWinners'
 import { useUserContext } from './UserContext'
 
@@ -32,7 +32,7 @@ const HARDWAYS_PAYOUT = new Map([
 
 export const usePayout = () => {
   const { setMoney } = useUserContext()
-  const { bets } = useContext(CrapsContext)
+  const { bets } = useCrapsContext()
   const { die1, die2 } = useContext(GameContext)
 
   const payoutUser = (results: IGameResults) => {

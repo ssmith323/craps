@@ -1,6 +1,6 @@
 import { PLACE_BETS_TYPE } from '@/app/craps/bets'
-import { CrapsContext } from '@/app/craps/context/CrapsBetsContext'
-import { FC, useContext } from 'react'
+import { useCrapsContext } from '@/app/craps/context/CrapsBetsContext'
+import { FC } from 'react'
 import { Chip } from '../../../../common/Chip'
 import { Droppable } from '../../../../common/DragAndDrop/Droppable'
 import { useUserContext } from '../../../context/UserContext'
@@ -11,7 +11,7 @@ interface NumberProps {
 }
 export const PlaceBet: FC<NumberProps> = ({ number, isPoint }) => {
   const { setMoney } = useUserContext()
-  const { bets } = useContext(CrapsContext)
+  const { bets } = useCrapsContext()
   const removeBet = () => {
     bets[`setPlace${number}`](null)
     setMoney((money) => money + (bets[`place${number}`] ?? 0))

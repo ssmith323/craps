@@ -1,9 +1,8 @@
 import { useToast } from '@/app/common/ToastContext'
 import { useUserContext } from '@/app/craps/context/UserContext'
 import { DndContext } from '@dnd-kit/core'
-import { useContext } from 'react'
 import { ChipTray } from '../../../common/ChipTray'
-import { CrapsContext } from '../../context/CrapsBetsContext'
+import { useCrapsContext } from '../../context/CrapsBetsContext'
 import { Dices } from '../Dice'
 import { FieldBets } from './FieldBets'
 import { Hardways } from './Hardways'
@@ -12,7 +11,7 @@ import { Place } from './PlaceArea'
 
 export const Mat = () => {
   const { money, setMoney } = useUserContext()
-  const { bets } = useContext(CrapsContext)
+  const { bets } = useCrapsContext()
   const toast = useToast()
 
   const handleDrag = (evt: any) => {

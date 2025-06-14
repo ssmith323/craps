@@ -5,12 +5,12 @@ import { useUserContext } from '@/app/craps/context/UserContext'
 import { GameContext } from '@/app/craps/GameContext'
 import { FC, useContext, useState } from 'react'
 import { Button } from '../../../common/Button'
-import { CrapsContext } from '../../context/CrapsBetsContext'
+import { useCrapsContext } from '../../context/CrapsBetsContext'
 
 export const AllPlaceBetsButton: FC = () => {
   const toast = useToast()
   const { money, setMoney } = useUserContext()
-  const { bets } = useContext(CrapsContext)
+  const { bets } = useCrapsContext()
   const { point } = useContext(GameContext)
   const [bet, setBet] = useState<string | null>()
 
